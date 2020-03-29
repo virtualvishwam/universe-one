@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>LanguageSettings</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Select Language</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-radio-group value="language">
+
+      <ion-item *ngFor="let language of availableLanguages">
+        <ion-label>{{ language }}</ion-label>
+        <ion-radio slot="start" value="{{ language }}"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
 
 </ion-content>

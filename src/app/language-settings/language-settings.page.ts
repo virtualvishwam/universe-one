@@ -10,7 +10,7 @@ export class LanguageSettingsPage implements OnInit {
 
   private availableLanguages = [
     "English",
-    "Hindi"
+    "हिन्दी"
   ]
 
   constructor() { }
