@@ -1,0 +1,7 @@
+{
+  "name": "universe-one",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
