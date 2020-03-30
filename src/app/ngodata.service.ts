@@ -21,15 +21,30 @@ export class NGOData {
               ngos: [
                 {
                   name: "The Conseptulizers",
-                  websiteLink: "www.xyz.com",
+                  websiteLink: "",
                   phoneNumber: "+91-9876543210",
                   emailID: "xyz@xyz.com",
                   facebook: "facebook",
                   twitter: "twitter",
                   instagram: "instagram",
-                  typeOfDonations: ["Money","Food Supplies"],
+                  typeOfDonations: "Money, Food Supplies",
                   localAreas: "Whole City",
                   verifiedProfile: true,
+                  verifiedProfileJustification: "I know this NGO",
+                  expanded: false
+                },
+                {
+                  name: "The Conseptulizers and friends",
+                  websiteLink: "",
+                  phoneNumber: "+91-9876543210",
+                  emailID: "xyz@xyz.com",
+                  facebook: "facebook",
+                  twitter: "twitter",
+                  instagram: "instagram",
+                  typeOfDonations: "Money, Food Supplies",
+                  localAreas: "Whole City",
+                  verifiedProfile: true,
+                  verifiedProfileJustification: "I know this NGO",
                   expanded: false
                 }
               ]
@@ -55,6 +70,7 @@ export class NGOData {
                   typeOfDonations: ["Money","Food Supplies"],
                   localAreas: "Whole City",
                   verifiedProfile: false,
+                  verifiedProfileJustification: "I know this NGO",
                   expanded: false
                 }
               ]

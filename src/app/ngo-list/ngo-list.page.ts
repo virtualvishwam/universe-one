@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NGOData } from '../ngodata.service';
 
 @Component({
   selector: 'app-ngo-list',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NGOListPage implements OnInit {
 
-  constructor() { }
+  private ngoList = this.ngoData.ngoList;
+
+  constructor(private ngoData: NGOData) { }
 
   ngOnInit() {
   }
