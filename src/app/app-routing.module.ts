@@ -14,6 +14,14 @@ const routes: Routes = [
   {
     path: 'language-settings',
     loadChildren: () => import('./language-settings/language-settings.module').then( m => m.LanguageSettingsPageModule)
+  },
+  {
+    path: 'our-appeal',
+    loadChildren: () => import('./our-appeal/our-appeal.module').then( m => m.OurAppealPageModule)
+  },
+  {
+    path: 'help-us',
+    loadChildren: () => import('./help-us/help-us.module').then( m => m.HelpUsPageModule)
   }
 ];
 

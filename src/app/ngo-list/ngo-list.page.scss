@@ -1,33 +1,64 @@
 
+.ngoListContent {
 
+    .selectedAreaGrid {
 
-.countryCard {
+        .selectedAreaRow {
+            padding-left: 0;
+            padding-right: 0;
+            margin: 8px 0;
 
-    .countryCardContent {
-        padding: 0;
-
-
-        .stateCard {
-
-            .stateCardContent {
-                padding: 0;
-
-
-                .cityCard {
-
-                    .cityCardContent {
-                        padding: 0;
-
-
-                        .ngoCard {
-
-                            .ngoCardContent {
-                                padding: 0;
-                            }
-                        }
-                    }
-                }
+            .selectedAreaCol {
+                border: 2px solid var(--app-theme-color);
+                padding: 10px 20px;
+                border-radius: 6px;
+                box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+                color: var(--app-theme-color);
+                font-weight: 600;
             }
         }
+    }
+
+    .areaListGrid {
+        border-top: 1px solid var(--app-theme-color-secondary);
+
+        .areaListRow {
+            margin: 5px 5px;
+
+            .areaListCol {
+                padding: 10px 20px;
+                border-radius: 6px;
+                box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+                font-weight: 500;
+            }
+        }
+    }
+
+    .ngoListGrid {
+        border-top: 1px solid var(--app-theme-color-secondary);
+
+        .ngoCard {
+            color: lightslategray;
+            border: 1px solid #13b2d6;
+
+            ion-card-header {
+                background-color: #13b2d6;
+
+                ion-card-title {
+                    font-weight: 600;
+                    color: antiquewhite;
+                }
+            }
+
+            .ngoCardContent {
+                padding-bottom: 0;
+                font-size: 1rem;
+            }
+
+            .socialMediaLogo {
+                font-size: 2.5rem;
+            }
+        }
+
     }
 }

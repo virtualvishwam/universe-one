@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LanguageSettingsPage implements OnInit {
 
 
-  private availableLanguages = [
+  availableLanguages = [
     "English",
     "हिन्दी"
   ]

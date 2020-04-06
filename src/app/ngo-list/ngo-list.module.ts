@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NGOListPageRoutingModule } from './ngo-list-routing.module';
 
 import { NGOListPage } from './ngo-list.page';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { NGOListPage } from './ngo-list.page';
     IonicModule,
     NGOListPageRoutingModule
   ],
-  declarations: [NGOListPage]
+  declarations: [NGOListPage],
+  providers: [
+    InAppBrowser
+  ]
 })
 export class NGOListPageModule {}

@@ -3,101 +3,98 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>NGO List</ion-title>
+    <ion-title>NGOs working during COVID-19</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <!-- Start of Countries card -->
-  <ion-card *ngFor="let country of ngoList" class="countryCard">
-    <ion-card-header>
-      <ion-card-title (click)="country.expanded = !country.expanded;">
-        <ion-icon name="chevron-down" *ngIf="!country.expanded"></ion-icon>
-        <ion-icon name="chevron-up" *ngIf="country.expanded"></ion-icon>
-        {{ country.country }}
-      </ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content *ngIf="country.expanded" class="countryCardContent">
+<ion-content class="ngoListContent">
 
 
-      <!-- Start of States card -->
-      <ion-card *ngFor="let state of country.states" class="stateCard">
-        <ion-card-header>
-          <ion-card-title (click)="state.expanded = !state.expanded;">
-            <ion-icon name="chevron-down" *ngIf="!state.expanded"></ion-icon>
-            <ion-icon name="chevron-up" *ngIf="state.expanded"></ion-icon>
-            {{ state.state }}
-          </ion-card-title>
-        </ion-card-header>
+  <ion-grid class="selectedAreaGrid">
+    <ion-row class="selectedAreaRow">
+      <ion-col class="selectedAreaCol">
+        Global
+      </ion-col>
+    </ion-row>
+    <ion-row class="selectedAreaRow" *ngIf="selectedCountry">
+      <ion-col class="selectedAreaCol">
+        {{ selectedCountry }}
+        <ion-icon name="close-circle" class="ion-float-end" (click)="closeCountry()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row class="selectedAreaRow" *ngIf="selectedState">
+      <ion-col class="selectedAreaCol">
+        {{ selectedState }}
+        <ion-icon name="close-circle" class="ion-float-end" (click)="closeState()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row class="selectedAreaRow" *ngIf="selectedCity">
+      <ion-col class="selectedAreaCol">
+        {{ selectedCity }}
+        <ion-icon name="close-circle" class="ion-float-end" (click)="closeCity()"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-        <ion-card-content *ngIf="state.expanded" class="stateCardContent">
 
+  <ion-grid class="areaListGrid" *ngIf="!showNGOList">
+    <ion-row *ngFor="let area of areaList" class="areaListRow">
+      <ion-col (click)="selectedArea(area)" class="areaListCol">
+        {{ area }}
+        <ion-icon name="chevron-down" class="ion-float-end"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-          <!-- Start of Cities Card -->
-          <ion-card *ngFor="let city of state.cities" class="cityCard">
-            <ion-card-header>
-              <ion-card-title (click)="city.expanded = !city.expanded;">
-                <ion-icon name="chevron-down" *ngIf="!city.expanded"></ion-icon>
-                <ion-icon name="chevron-up" *ngIf="city.expanded"></ion-icon>
-                {{ city.city }}
-              </ion-card-title>
-            </ion-card-header>
+  
+  <ion-grid class="ngoListGrid" *ngIf="showNGOList">
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let ngo of ngoList" class="ngoCard" mode="md">
+          <ion-card-header>
+            <ion-card-title>
+              {{ ngo.name }}
+              <!-- <ion-icon name="checkmark-done-circle-outline" *ngIf="ngo.verifiedProfile"></ion-icon> -->
+            </ion-card-title>
+          </ion-card-header>
 
-            <ion-card-content *ngIf="city.expanded" class="cityCardContent">
+          <ion-card-content class="ngoCardContent">
+            <ul style="list-style-type:circle;">
+              <li *ngIf="ngo.websiteLink" (click)="openWebsite(ngo.websiteLink)">
+                <b>Website: </b>{{ ngo.websiteLink }}
+                <ion-icon name="open-outline"></ion-icon>
+              </li>
+              <li *ngIf="ngo.phoneNumber">
+                <b>Phone Number: </b>{{ ngo.phoneNumber }}
+              </li>
+              <li *ngIf="ngo.emailID">
+                <b>Email ID: </b>{{ ngo.emailID }}
+              </li>
+              <li *ngIf="ngo.typeOfDonations">
+                <b>Types of Donation accepted: </b>{{ ngo.typeOfDonations }}
+              </li>
+              <li *ngIf="ngo.localAreas">
+                <b>NGO mainly active in: </b>{{ ngo.localAreas }}
+              </li>
+            </ul>
+          </ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col (click)="openWebsite(ngo.facebook)" *ngIf="ngo.facebook" align="center" class="socialMediaLogo">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-col>
+              <ion-col (click)="openWebsite(ngo.instagram)" *ngIf="ngo.instagram" align="center" class="socialMediaLogo">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </ion-col>
+              <ion-col (click)="openWebsite(ngo.twitter)" *ngIf="ngo.twitter" align="center" class="socialMediaLogo">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-
-              <!-- Start of NGO Card -->
-              <ion-card *ngFor="let ngo of city.ngos" class="ngoCard">
-                <ion-card-header>
-                  <ion-card-title (click)="ngo.expanded = !ngo.expanded;">
-                    <ion-icon name="chevron-down" *ngIf="!ngo.expanded"></ion-icon>
-                    <ion-icon name="chevron-up" *ngIf="ngo.expanded"></ion-icon>
-                    {{ ngo.name }}
-                    <!-- <ion-icon name="checkmark-done-circle-outline" *ngIf="ngo.verifiedProfile"></ion-icon> -->
-                  </ion-card-title>
-                </ion-card-header>
-
-                <ion-card-content *ngIf="ngo.expanded" class="ngoCardContent">
-                  <ul style="list-style-type:circle;">
-                    <li *ngIf="ngo.websiteLink">
-                      <b>Website: </b>{{ ngo.websiteLink }}
-                    </li>
-                    <li *ngIf="ngo.phoneNumber">
-                      <b>Phone Number: </b>{{ ngo.phoneNumber }}
-                    </li>
-                    <li *ngIf="ngo.emailID">
-                      <b>Email ID: </b>{{ ngo.emailID }}
-                    </li>
-                    <li *ngIf="ngo.typeOfDonations">
-                      <b>Types of Donation accepted: </b>{{ ngo.typeOfDonations }}
-                    </li>
-                    <li *ngIf="ngo.localAreas">
-                      <b>NGO mainly active in: </b>{{ ngo.localAreas }}
-                    </li>
-                    <li *ngIf="ngo.facebook">
-                      <b>Facebook Profile: </b>{{ ngo.facebook }}
-                    </li>
-                    <li *ngIf="ngo.twitter">
-                      <b>Twitter Profile: </b>{{ ngo.twitter }}
-                    </li>
-                    <li *ngIf="ngo.instagram">
-                      <b>Instagram: </b>{{ ngo.instagram }}
-                    </li>
-                  </ul>
-                </ion-card-content>
-
-              </ion-card>
-              <!-- End of NGO Card -->
-            </ion-card-content>
-          </ion-card>
-          <!-- End of Cities Card -->
-        </ion-card-content>
-      </ion-card>
-      <!-- End of States card -->
-    </ion-card-content>
-  </ion-card>
-  <!-- End of Countries Card -->
 
 </ion-content>
