@@ -3,7 +3,10 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header (click)="clickedOurAppeal()">🙏🙏 Our Appeal 🙏🙏</ion-list-header>
+
+          <ion-button expand="block" fill="outline" mode="md" (click)="clickedOurAppeal()" class="menuAppealButton">
+            🙏🙏 Our Appeal 🙏🙏
+          </ion-button>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"

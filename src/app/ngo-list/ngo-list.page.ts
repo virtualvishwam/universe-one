@@ -9,23 +9,17 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class NGOListPage {
 
-
   selectedCountry: string = "";
   selectedState: string = "";
   selectedCity: string = "";
   showNGOList: boolean;
-
   areaList: string[] = [];
+  ngoList = [];
 
-
-
-  ngoList = this.ngoData.ngoList5;
 
   constructor(private ngoData: NGOData, private iab: InAppBrowser) {
     this.areaList = ngoData.fetchCountries();
   }
-
-
 
   closeCountry() {
     this.selectedCountry = this.selectedState = this.selectedCity = "";
@@ -56,6 +50,7 @@ export class NGOListPage {
     }
     else if (!this.selectedCity) {
       this.selectedCity = chosenArea;
+      this.ngoList = this.ngoData.fetchNGO(this.selectedCountry,this.selectedState,this.selectedCity);
       this.showNGOList = true;
     }
 

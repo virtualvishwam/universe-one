@@ -88,22 +88,3 @@
     </ion-card-content>
   </ion-card>
   <!-- End of Countries Card -->
-
-
-
-
-  {
-      name: "The Conseptulizers",
-      websiteLink: "https://www.google.com",
-      phoneNumber: "+91-9876543210",
-      emailID: "xyz@xyz.com",
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-      instagram: "https://instagram.com",
-      typeOfDonations: "Money, Food Supplies",
-      localAreas: "Whole City",
-      messageFromNGO: "",
-      verifiedProfile: true,
-      verifiedProfileJustification: "I know this NGO",
-      expanded: false
-    },

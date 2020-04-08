@@ -50,10 +50,10 @@
   <ion-grid class="ngoListGrid" *ngIf="showNGOList">
     <ion-row>
       <ion-col>
-        <ion-card *ngFor="let ngo of ngoList" class="ngoCard" mode="md">
+        <ion-card class="ngoCard" mode="md" *ngFor="let ngo of ngoList">
           <ion-card-header>
             <ion-card-title>
-              {{ ngo.name }}
+              {{ ngo.typeOfOrganization }} - {{ ngo.name }}
               <!-- <ion-icon name="checkmark-done-circle-outline" *ngIf="ngo.verifiedProfile"></ion-icon> -->
             </ion-card-title>
           </ion-card-header>
