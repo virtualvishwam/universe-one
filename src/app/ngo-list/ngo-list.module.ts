@@ -8,13 +8,15 @@ import { NGOListPageRoutingModule } from './ngo-list-routing.module';
 
 import { NGOListPage } from './ngo-list.page';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NGOListPageRoutingModule
+    NGOListPageRoutingModule,
+    TranslateModule
   ],
   declarations: [NGOListPage],
   providers: [

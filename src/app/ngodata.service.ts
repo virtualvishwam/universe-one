@@ -80,6 +80,23 @@ export class NGOData {
       verifiedProfile: true,
       verifiedProfileJustification: "Well known NGO. Proof of work documented in various news portals and social media.",
       message: "Distributing - 'Care kit (Each care kit includes 6 antiseptic soaps, 125 g each and a hand sanitizer, 200 ml.) & One Month’s Food Supply (Flour, Rice, Pulses, Cooking Oil and Other Food Items)'"
+    },
+    {
+      name:"Sarthak Foundation",
+      typeOfOrganization: "NGO",
+      websiteLink: "https://www.sarthakfoundation.org",
+      country:"India",
+      state:"Uttar Pradesh",
+      city: "Lucknow",
+      phoneNumber:"+91-9984031039",
+      emailID:"social@sarthakfoundation.org",
+      facebook:"https://www.facebook.com/SarthakFoundation",
+      twitter:"https://twitter.com/sarthakngo",
+      instagram:"https://www.instagram.com/SarthakFoundation",
+      typeOfDonations: "Money, Food Supplies",
+      verifiedProfile: true,
+      verifiedProfileJustification:"Well know NGO in Lucknow. Social media account has proof of work.",
+      message: "Message from NGO - 'We are ensuring distribution through Parshads and Pradhans and are coordinating with community kitchens to distribute food. Also some donors are coming and distributing veggies and all'"
     }
 
   ];
@@ -95,17 +112,24 @@ export class NGOData {
           ]
         },
         {
+          name: "Delhi NCR",
+          cities: [
+            "Delhi NCR"
+          ]
+        },
+        {
           name: "Maharashtra",
           cities: [
             "Mumbai"
           ]
         },
         {
-          name: "Delhi NCR",
+          name: "Uttar Pradesh",
           cities: [
-            "Delhi NCR"
+            "Lucknow"
           ]
-        },
+        }
+        
       ]
     }
   ];

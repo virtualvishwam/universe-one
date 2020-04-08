@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NGOData } from '../ngodata.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ngo-list',
@@ -17,7 +18,7 @@ export class NGOListPage {
   ngoList = [];
 
 
-  constructor(private ngoData: NGOData, private iab: InAppBrowser) {
+  constructor(private ngoData: NGOData, private iab: InAppBrowser, private alrtCtrl: AlertController) {
     this.areaList = ngoData.fetchCountries();
   }
 
@@ -50,7 +51,7 @@ export class NGOListPage {
     }
     else if (!this.selectedCity) {
       this.selectedCity = chosenArea;
-      this.ngoList = this.ngoData.fetchNGO(this.selectedCountry,this.selectedState,this.selectedCity);
+      this.ngoList = this.ngoData.fetchNGO(this.selectedCountry, this.selectedState, this.selectedCity);
       this.showNGOList = true;
     }
 
@@ -58,7 +59,17 @@ export class NGOListPage {
 
 
   openWebsite(link) {
-    this.iab.create(link,'_system');
+    this.iab.create(link, '_system');
+  }
+
+  async showMessage(message) {
+    let alert = await this.alrtCtrl.create({
+      header: "Message",
+      message: message,
+      buttons: ["Okay"]
+    });
+
+    await alert.present();
   }
 
 

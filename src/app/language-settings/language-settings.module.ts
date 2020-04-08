@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LanguageSettingsPageRoutingModule } from './language-settings-routing.module';
 
 import { LanguageSettingsPage } from './language-settings.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LanguageSettingsPageRoutingModule
+    LanguageSettingsPageRoutingModule,
+    TranslateModule
   ],
   declarations: [LanguageSettingsPage]
 })

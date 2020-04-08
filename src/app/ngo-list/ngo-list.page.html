@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>NGOs working during COVID-19</ion-title>
+    <ion-title>{{ "NGO List - COVID-19" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,24 +13,24 @@
   <ion-grid class="selectedAreaGrid">
     <ion-row class="selectedAreaRow">
       <ion-col class="selectedAreaCol">
-        Global
+        {{"Global" | translate}}
       </ion-col>
     </ion-row>
     <ion-row class="selectedAreaRow" *ngIf="selectedCountry">
       <ion-col class="selectedAreaCol">
-        {{ selectedCountry }}
+        {{ selectedCountry | translate}}
         <ion-icon name="close-circle" class="ion-float-end" (click)="closeCountry()"></ion-icon>
       </ion-col>
     </ion-row>
     <ion-row class="selectedAreaRow" *ngIf="selectedState">
       <ion-col class="selectedAreaCol">
-        {{ selectedState }}
+        {{ selectedState | translate}}
         <ion-icon name="close-circle" class="ion-float-end" (click)="closeState()"></ion-icon>
       </ion-col>
     </ion-row>
     <ion-row class="selectedAreaRow" *ngIf="selectedCity">
       <ion-col class="selectedAreaCol">
-        {{ selectedCity }}
+        {{ selectedCity | translate}}
         <ion-icon name="close-circle" class="ion-float-end" (click)="closeCity()"></ion-icon>
       </ion-col>
     </ion-row>
@@ -40,7 +40,7 @@
   <ion-grid class="areaListGrid" *ngIf="!showNGOList">
     <ion-row *ngFor="let area of areaList" class="areaListRow">
       <ion-col (click)="selectedArea(area)" class="areaListCol">
-        {{ area }}
+        {{ area | translate}}
         <ion-icon name="chevron-down" class="ion-float-end"></ion-icon>
       </ion-col>
     </ion-row>
@@ -75,6 +75,9 @@
               </li>
               <li *ngIf="ngo.localAreas">
                 <b>NGO mainly active in: </b>{{ ngo.localAreas }}
+              </li>
+              <li *ngIf="ngo.message" (click)="showMessage(ngo.message)">
+                <b><u>{{ "Click here to read the message" | translate}}</u></b>
               </li>
             </ul>
           </ion-card-content>
