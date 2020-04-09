@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { OurAppealPageRoutingModule } from './our-appeal-routing.module';
 
 import { OurAppealPage } from './our-appeal.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OurAppealPageRoutingModule
+    OurAppealPageRoutingModule,
+    TranslateModule
   ],
   declarations: [OurAppealPage]
 })

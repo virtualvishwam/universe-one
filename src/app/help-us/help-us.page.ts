@@ -17,4 +17,8 @@ export class HelpUsPage {
   openAddNGOForm() {
     this.iab.create("https://forms.gle/vuHHNnDnJDjWSksY8","_system");
   }
+
+  openContactUsForm() {
+    this.iab.create("https://forms.gle/nB26A8G1i6YrD2q27","_system");
+  }
 }

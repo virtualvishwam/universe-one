@@ -23,6 +23,6 @@
   <p>We, being a crowd-sourced project, depend upon your help to gather data and make it accessible to everyone. If you
     want to help us, please visit our <b [routerLink]="['/help-us']">Help Us</b> page. Any sort of help would be much appreciated.
   </p>
-  <ion-button expand="block" fill="outline" color="lightgreen">Help Us</ion-button>
+  <ion-button expand="block" fill="outline" (click)="openHelpUs()">{{"Help Us" | translate}}</ion-button>
 
 </ion-content>

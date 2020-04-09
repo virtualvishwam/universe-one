@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NGOData } from '../ngodata.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ngo-list',
@@ -18,7 +19,8 @@ export class NGOListPage {
   ngoList = [];
 
 
-  constructor(private ngoData: NGOData, private iab: InAppBrowser, private alrtCtrl: AlertController) {
+  constructor(private ngoData: NGOData, private iab: InAppBrowser, private alrtCtrl: AlertController,
+    private router: Router) {
     this.areaList = ngoData.fetchCountries();
   }
 
@@ -70,6 +72,14 @@ export class NGOListPage {
     });
 
     await alert.present();
+  }
+
+  openAboutUs() {
+    this.router.navigate(["our-appeal"]);
+  }
+
+  openAddNGOForm(){
+    this.iab.create("https://forms.gle/vuHHNnDnJDjWSksY8","_system");
   }
 
 
