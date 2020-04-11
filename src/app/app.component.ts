@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform, private router: Router, private menu: MenuController,
     private splashScreen: SplashScreen, private translate: TranslateService,
-    private statusBar: StatusBar
+    private statusBar: StatusBar, private firestore: AngularFirestore
   ) {
     this.initializeApp();
   }
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit {
     }
     
   }
+
 
   ngOnInit() {
 

@@ -9,11 +9,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { firebaseConfig } from './firebase-config';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +27,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: { 

@@ -16,7 +16,7 @@ export class NGOListPage {
   selectedCity: string = "";
   showNGOList: boolean;
   areaList: string[] = [];
-  ngoList = [];
+  ngoList;
 
 
   constructor(private ngoData: NGOData, private iab: InAppBrowser, private alrtCtrl: AlertController,
@@ -41,7 +41,7 @@ export class NGOListPage {
     this.showNGOList = false;
   }
 
-  selectedArea(chosenArea: string) {
+  async selectedArea(chosenArea: string) {
 
     if (!this.selectedCountry) {
       this.selectedCountry = chosenArea;
@@ -53,7 +53,10 @@ export class NGOListPage {
     }
     else if (!this.selectedCity) {
       this.selectedCity = chosenArea;
-      this.ngoList = this.ngoData.fetchNGO(this.selectedCountry, this.selectedState, this.selectedCity);
+      this.ngoList = await this.ngoData.fetchNGO(this.selectedCountry, this.selectedState, this.selectedCity);
+      if(this.ngoList.length === 0) {
+        console.log("No data");
+      }
       this.showNGOList = true;
     }
 
@@ -66,8 +69,8 @@ export class NGOListPage {
 
   async showMessage(message) {
     let alert = await this.alrtCtrl.create({
-      header: "Message",
-      message: message,
+      header: message.title,
+      message: message.text,
       buttons: ["Okay"]
     });
 

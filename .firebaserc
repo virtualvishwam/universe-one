@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "universe-one"
+  },
+  "targets": {
+    "universe-one": {
+      "hosting": {
+        "app": [
+          "universe-one"
+        ]
+      }
+    }
   }
 }
