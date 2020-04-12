@@ -30,11 +30,11 @@ export class AppComponent implements OnInit {
       url: '/help-us',
       icon: 'beer'
     },
-    {
-      title: 'Contributors',
-      url: '/contributors',
-      icon: 'people'
-    },
+    // {
+    //   title: 'Contributors',
+    //   url: '/contributors',
+    //   icon: 'people'
+    // }
   ];
 
   constructor(
