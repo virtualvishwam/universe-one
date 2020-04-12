@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NGOData } from '../ngodata.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class NGOListPage {
 
 
   constructor(private ngoData: NGOData, private iab: InAppBrowser, private alrtCtrl: AlertController,
-    private router: Router) {
+    private router: Router, private toastCtrl: ToastController) {
     this.areaList = ngoData.fetchCountries();
   }
 
@@ -83,6 +83,15 @@ export class NGOListPage {
 
   openAddNGOForm(){
     this.iab.create("https://forms.gle/vuHHNnDnJDjWSksY8","_system");
+  }
+
+  async clickedIcon(icon) {
+    let toast = await this.toastCtrl.create({
+      duration: 2000,
+      message: icon,
+      mode: "md"
+    });
+    toast.present();
   }
 
 

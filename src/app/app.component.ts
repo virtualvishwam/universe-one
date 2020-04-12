@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 @Component({
   selector: 'app-root',
@@ -29,15 +29,22 @@ export class AppComponent implements OnInit {
       title: 'Help Us',
       url: '/help-us',
       icon: 'beer'
-    }
+    },
+    {
+      title: 'Contributors',
+      url: '/contributors',
+      icon: 'people'
+    },
   ];
 
   constructor(
     private platform: Platform, private router: Router, private menu: MenuController,
     private splashScreen: SplashScreen, private translate: TranslateService,
-    private statusBar: StatusBar, private firestore: AngularFirestore
+    private statusBar: StatusBar, private analytics: AngularFireAnalytics
   ) {
     this.initializeApp();
+    this.logAnalyticsEvent();
+
   }
 
   initializeApp() {
@@ -47,13 +54,17 @@ export class AppComponent implements OnInit {
     });
 
     let langCode = localStorage.getItem('langCode');
-    if(langCode) {
+    if (langCode) {
       this.translate.setDefaultLang(langCode);
     }
     else {
       this.translate.setDefaultLang('en');
     }
-    
+
+  }
+
+  logAnalyticsEvent() {
+    this.analytics.logEvent('app_opened');
   }
 
 

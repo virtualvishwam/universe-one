@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'help-us',
     loadChildren: () => import('./help-us/help-us.module').then( m => m.HelpUsPageModule)
+  },
+  {
+    path: 'contributors',
+    loadChildren: () => import('./contributors/contributors.module').then( m => m.ContributorsPageModule)
   }
 ];
 

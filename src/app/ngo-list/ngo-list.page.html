@@ -54,9 +54,53 @@
           <ion-card-header>
             <ion-card-title>
               {{ ngo.typeOfOrganization }} - {{ ngo.name }}
-              <!-- <ion-icon name="checkmark-done-circle-outline" *ngIf="ngo.verifiedProfile"></ion-icon> -->
+              <ion-icon name="checkmark-done-circle-outline" *ngIf="ngo.verifiedProfile"></ion-icon>
             </ion-card-title>
           </ion-card-header>
+
+          <ion-grid class="donationIcons" *ngIf="ngo.distributions">
+            <ion-row>
+              <ion-col>
+                <b>{{ "Contact For / Items being donated:" }}</b>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col *ngIf="ngo.distributions.includes('Meals')" align="center">
+                <ion-icon src="/assets/images/icons/rice.svg" (click)="clickedIcon('Food / Meals')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Grocery')" align="center">
+                <ion-icon src="/assets/images/icons/groceries.svg" (click)="clickedIcon('Grocery Kits')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Masks')" align="center">
+                <ion-icon src="/assets/images/icons/mask.svg" (click)="clickedIcon('Face Masks')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Hygiene')" align="center">
+                <ion-icon src="/assets/images/icons/hand-wash.svg" (click)="clickedIcon('Hygiene Kits')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('PPE') || ngo.distributions.includes('Personal Protective')" align="center">
+                <ion-icon src="/assets/images/icons/armour.svg" (click)="clickedIcon('Personal Protective Equipments')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Money')" align="center">
+                <ion-icon src="/assets/images/icons/money.svg" (click)="clickedIcon('Cash / Money Transfers')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Animal')" align="center">
+                <ion-icon src="/assets/images/icons/animal.svg" (click)="clickedIcon('Food for Animals')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Health')" align="center">
+                <ion-icon src="/assets/images/icons/medicine.svg" (click)="clickedIcon('Health Kits')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Volunteer')" align="center">
+                <ion-icon src="/assets/images/icons/ninja.svg" (click)="clickedIcon('Volunteers')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Accomodation')" align="center">
+                <ion-icon src="/assets/images/icons/house.svg" (click)="clickedIcon('Accomodation')"></ion-icon>
+              </ion-col>
+              <ion-col *ngIf="ngo.distributions.includes('Hospital')" align="center">
+                <ion-icon src="/assets/images/icons/hospital.svg" (click)="clickedIcon('Hospital Equipments')"></ion-icon>
+              </ion-col>
+              
+            </ion-row>
+          </ion-grid>
 
           <ion-card-content class="ngoCardContent">
             <ul style="list-style-type:circle;">
