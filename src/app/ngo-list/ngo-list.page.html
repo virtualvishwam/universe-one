@@ -46,7 +46,7 @@
     </ion-row>
   </ion-grid>
 
-  
+
   <ion-grid class="ngoListGrid" *ngIf="showNGOList">
     <ion-row>
       <ion-col>
@@ -77,11 +77,14 @@
               <ion-col *ngIf="ngo.distributions.includes('Hygiene')" align="center">
                 <ion-icon src="/assets/images/icons/hand-wash.svg" (click)="clickedIcon('Hygiene Kits')"></ion-icon>
               </ion-col>
-              <ion-col *ngIf="ngo.distributions.includes('PPE') || ngo.distributions.includes('Personal Protective')" align="center">
-                <ion-icon src="/assets/images/icons/armour.svg" (click)="clickedIcon('Personal Protective Equipments')"></ion-icon>
+              <ion-col *ngIf="ngo.distributions.includes('PPE') || ngo.distributions.includes('Personal Protective')"
+                align="center">
+                <ion-icon src="/assets/images/icons/armour.svg" (click)="clickedIcon('Personal Protective Equipments')">
+                </ion-icon>
               </ion-col>
               <ion-col *ngIf="ngo.distributions.includes('Money')" align="center">
-                <ion-icon src="/assets/images/icons/money.svg" (click)="clickedIcon('Cash / Money Transfers')"></ion-icon>
+                <ion-icon src="/assets/images/icons/money.svg" (click)="clickedIcon('Cash / Money Transfers')">
+                </ion-icon>
               </ion-col>
               <ion-col *ngIf="ngo.distributions.includes('Animal')" align="center">
                 <ion-icon src="/assets/images/icons/animal.svg" (click)="clickedIcon('Food for Animals')"></ion-icon>
@@ -96,9 +99,10 @@
                 <ion-icon src="/assets/images/icons/house.svg" (click)="clickedIcon('Accomodation')"></ion-icon>
               </ion-col>
               <ion-col *ngIf="ngo.distributions.includes('Hospital')" align="center">
-                <ion-icon src="/assets/images/icons/hospital.svg" (click)="clickedIcon('Hospital Equipments')"></ion-icon>
+                <ion-icon src="/assets/images/icons/hospital.svg" (click)="clickedIcon('Hospital Equipments')">
+                </ion-icon>
               </ion-col>
-              
+
             </ion-row>
           </ion-grid>
 
@@ -130,7 +134,8 @@
               <ion-col (click)="openWebsite(ngo.facebook)" *ngIf="ngo.facebook" align="center" class="socialMediaLogo">
                 <ion-icon name="logo-facebook"></ion-icon>
               </ion-col>
-              <ion-col (click)="openWebsite(ngo.instagram)" *ngIf="ngo.instagram" align="center" class="socialMediaLogo">
+              <ion-col (click)="openWebsite(ngo.instagram)" *ngIf="ngo.instagram" align="center"
+                class="socialMediaLogo">
                 <ion-icon name="logo-instagram"></ion-icon>
               </ion-col>
               <ion-col (click)="openWebsite(ngo.twitter)" *ngIf="ngo.twitter" align="center" class="socialMediaLogo">
@@ -154,7 +159,8 @@
           <ion-button expand="block" fill="solid" (click)="openAboutUs()">{{"Contributors" | translate}}</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button expand="block" fill="solid" (click)="openAddNGOForm()">{{"Add COVID-19 NGOs" | translate}}</ion-button> 
+          <ion-button expand="block" fill="solid" (click)="openAddNGOForm()">{{"Add COVID-19 NGOs" | translate}}
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

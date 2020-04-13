@@ -23,7 +23,7 @@ export class NGOData {
       })
     })
 
-    return list;
+    return list.sort();
   }
 
   fetchStates(country) {
@@ -38,12 +38,12 @@ export class NGOData {
         list.splice(x,1);
       }
     });
-    return list;
+    return list.sort();
   }
 
   fetchCities(state) {
     let list: string[] = this.tempStates[state];
-    return list;
+    return list.sort();
   }
 
   fetchNGO(country, state, city) {
