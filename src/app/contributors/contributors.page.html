@@ -10,23 +10,40 @@
 <ion-content class="ion-padding">
 
 
-  <h3>Our Team:</h3>
-  <ul>
-    <li>virtualvishwam</li>
-    <li>Ankur Sharma</li>
-    <li>Srishti Asthana</li>
-    <li>Garuna Singh</li>
-  </ul>
+  <h3>{{ "Our Team" | translate }}:</h3>
+  <ion-list>
+    <ion-item *ngFor="let person of ourTeam">
+      <ion-avatar slot="start">
+        <img src="{{ person.imagePath }}">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ person.name }}</h3>
+        <p>{{ person.role }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <h3>Data contributors:</h3>
+
+  <!-- <h3>Data contributors:</h3> -->
+
 
 
   <h3>Icon Attributions:</h3>
   <ul>
-    <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"  target="_blank">www.flaticon.com</a></li>
-    <li>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik"  target="_blank">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon"  target="_blank"> www.flaticon.com</a></li>
-    <li>Icons made by <a href="https://www.flaticon.com/authors/photo3idea-studio" title="photo3idea_studio"  target="_blank">photo3idea_studio</a> from <a href="https://www.flaticon.com/" title="Flaticon"  target="_blank"> www.flaticon.com</a></li>
-    <li>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect"  target="_blank">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"  target="_blank"> www.flaticon.com</a></li>
+    <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a>
+      from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a></li>
+    <li>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik" target="_blank">monkik</a> from
+      <a href="https://www.flaticon.com/" title="Flaticon" target="_blank"> www.flaticon.com</a></li>
+    <li>Icons made by <a href="https://www.flaticon.com/authors/photo3idea-studio" title="photo3idea_studio"
+        target="_blank">photo3idea_studio</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">
+        www.flaticon.com</a></li>
+    <li>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect"
+        target="_blank">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">
+        www.flaticon.com</a></li>
+    <li>Icons made by <a href="https://www.flaticon.com/authors/roundicons-freebies" title="Roundicons Freebies"
+        target="_blank">Roundicons Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon"
+        target="_blank">
+        www.flaticon.com</a></li>
   </ul>
 
 
