@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: NGOListPage
+  },
+  {
+    path: 'all',
+    loadChildren: () => import('./all/all.module').then( m => m.AllPageModule)
+  },
+  {
+    path: 'disclaimer',
+    loadChildren: () => import('./disclaimer/disclaimer.module').then( m => m.DisclaimerPageModule)
   }
 ];
 

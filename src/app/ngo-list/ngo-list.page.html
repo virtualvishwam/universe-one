@@ -51,6 +51,7 @@
     <ion-row>
       <ion-col>
         <ion-card class="ngoCard" mode="md" *ngFor="let ngo of ngoList">
+
           <ion-card-header>
             <ion-card-title>
               {{ ngo.typeOfOrganization }} - {{ ngo.name }}
@@ -129,6 +130,7 @@
               </li>
             </ul>
           </ion-card-content>
+
           <ion-grid>
             <ion-row>
               <ion-col (click)="openWebsite(ngo.facebook)" *ngIf="ngo.facebook" align="center" class="socialMediaLogo">
@@ -143,7 +145,17 @@
               </ion-col>
             </ion-row>
           </ion-grid>
+
         </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" fill="clear" [routerLink]="['/ngo-list/disclaimer']">xxxx {{ "Disclaimer" | translate}} xxxx</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" fill="clear" [routerLink]="['/ngo-list/all']">xxxx {{ "Complete List" | translate}} xxxx</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

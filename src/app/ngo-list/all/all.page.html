@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ "All Organization / Communities" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="ngoCard" mode="md" *ngFor="let ngo of ngoList" id="{{ngo.name}}">
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ ngo.typeOfOrganization }} - {{ ngo.name }}
+        <!-- <ion-icon src="/assets/images/icons/verifed-tick.svg" *ngIf="ngo.verifiedProfile" class="ion-float-end"></ion-icon> -->
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-grid class="donationIcons" *ngIf="ngo.distributions">
+      <ion-row>
+        <ion-col>
+          <b>{{ "Contact For / Items being donated:" }}</b>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="ngo.distributions.includes('Meals')" align="center">
+          <ion-icon src="/assets/images/icons/rice.svg" (click)="clickedIcon('Food / Meals')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Grocery')" align="center">
+          <ion-icon src="/assets/images/icons/groceries.svg" (click)="clickedIcon('Grocery Kits')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Masks')" align="center">
+          <ion-icon src="/assets/images/icons/mask.svg" (click)="clickedIcon('Face Masks')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Hygiene')" align="center">
+          <ion-icon src="/assets/images/icons/hand-wash.svg" (click)="clickedIcon('Hygiene Kits')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('PPE') || ngo.distributions.includes('Personal Protective')"
+          align="center">
+          <ion-icon src="/assets/images/icons/armour.svg" (click)="clickedIcon('Personal Protective Equipments')">
+          </ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Money')" align="center">
+          <ion-icon src="/assets/images/icons/money.svg" (click)="clickedIcon('Cash / Money Transfers')">
+          </ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Animal')" align="center">
+          <ion-icon src="/assets/images/icons/animal.svg" (click)="clickedIcon('Food for Animals')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Health')" align="center">
+          <ion-icon src="/assets/images/icons/medicine.svg" (click)="clickedIcon('Health Kits')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Volunteer')" align="center">
+          <ion-icon src="/assets/images/icons/ninja.svg" (click)="clickedIcon('Volunteers')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Accomodation')" align="center">
+          <ion-icon src="/assets/images/icons/house.svg" (click)="clickedIcon('Accomodation')"></ion-icon>
+        </ion-col>
+        <ion-col *ngIf="ngo.distributions.includes('Hospital')" align="center">
+          <ion-icon src="/assets/images/icons/hospital.svg" (click)="clickedIcon('Hospital Equipments')">
+          </ion-icon>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+    <ion-card-content class="ngoCardContent">
+      <ul style="list-style-type:circle;">
+        <li *ngIf="ngo.websiteLink" (click)="openWebsite(ngo.websiteLink)">
+          <b>Website: </b>{{ ngo.websiteLink }}
+          <ion-icon name="open-outline"></ion-icon>
+        </li>
+        <li *ngIf="ngo.phoneNumber">
+          <b>Phone Number: </b>{{ ngo.phoneNumber }}
+        </li>
+        <li *ngIf="ngo.emailID">
+          <b>Email ID: </b>{{ ngo.emailID }}
+        </li>
+        <li *ngIf="ngo.typeOfDonations">
+          <b>Types of Donation accepted: </b>{{ ngo.typeOfDonations }}
+        </li>
+        <li *ngIf="ngo.localAreas">
+          <b>NGO mainly active in: </b>{{ ngo.localAreas }}
+        </li>
+        <li *ngIf="ngo.message" (click)="showMessage(ngo.message)">
+          <b><u>{{ "Click here to read the message" | translate}}</u></b>
+        </li>
+      </ul>
+    </ion-card-content>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="openWebsite(ngo.facebook)" *ngIf="ngo.facebook" align="center" class="socialMediaLogo">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </ion-col>
+        <ion-col (click)="openWebsite(ngo.instagram)" *ngIf="ngo.instagram" align="center"
+          class="socialMediaLogo">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </ion-col>
+        <ion-col (click)="openWebsite(ngo.twitter)" *ngIf="ngo.twitter" align="center" class="socialMediaLogo">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+</ion-content>

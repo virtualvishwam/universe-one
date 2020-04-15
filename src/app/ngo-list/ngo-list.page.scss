@@ -68,5 +68,11 @@
 
         }
 
+        .bottomText {
+            font-style: italic;
+            color: var(--app-theme-color);
+            text-decoration: underline;
+        }
+
     }
 }

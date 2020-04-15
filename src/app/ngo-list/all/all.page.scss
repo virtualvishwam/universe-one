@@ -1,0 +1,30 @@
+.ngoCard {
+    color: lightslategray;
+    border: 1px solid #13b2d6;
+
+    ion-card-header {
+        background-color: #13b2d6;
+
+        ion-card-title {
+            font-weight: 600;
+            color: antiquewhite;
+        }
+    }
+
+    .donationIcons {
+
+        ion-icon {
+            font-size: 3rem;
+        }
+    }
+
+    .ngoCardContent {
+        padding-bottom: 0;
+        font-size: 1rem;
+    }
+
+    .socialMediaLogo {
+        font-size: 2.5rem;
+    }
+
+}
