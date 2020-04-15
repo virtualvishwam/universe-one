@@ -15,13 +15,13 @@ export class ContributorsPage {
     {
       name: "virtualvishwam",
       imagePath: "https://image.flaticon.com/icons/svg/189/189001.svg",
-      role: "Handling Web Development",
+      role: "Handling Website Development",
       onClick: ""
     },
     {
       name: "Ankur Sharma",
-      imagePath: "../../assets/images/icons/animal.svg",
-      role: "Handling Social Media",
+      imagePath: "https://image.flaticon.com/icons/svg/188/188995.svg",
+      role: "Handling Website Promotions",
       onClick: ""
     }
   ]
