@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IonContent } from '@ionic/angular';
+import { IonContent, ToastController, AlertController } from '@ionic/angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-all',
@@ -16,7 +17,8 @@ export class AllPage implements OnInit {
 
   ngoList = [];
 
-  constructor(private firestore: AngularFirestore, private route: ActivatedRoute) { }
+  constructor(private firestore: AngularFirestore, private route: ActivatedRoute, private toastCtrl: ToastController,
+    private alrtCtrl: AlertController, private iab: InAppBrowser) { }
 
   ngOnInit() {
     this.getAllOrganizations();
@@ -48,5 +50,28 @@ export class AllPage implements OnInit {
         }
       }
     );
+  }
+
+  async clickedIcon(icon) {
+    let toast = await this.toastCtrl.create({
+      duration: 2000,
+      message: icon,
+      mode: "md"
+    });
+    toast.present();
+  }
+
+  async showMessage(message) {
+    let alert = await this.alrtCtrl.create({
+      header: message.title,
+      message: message.text,
+      buttons: ["Okay"]
+    });
+
+    await alert.present();
+  }
+
+  openWebsite(link) {
+    this.iab.create(link, '_system');
   }
 }

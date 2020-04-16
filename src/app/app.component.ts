@@ -77,4 +77,17 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/our-appeal']);
     this.menu.close();
   }
+
+  openWebsite(website) {
+
+    switch (website) {
+      case 'facebook':
+        window.open("https://www.facebook.com/universeoneorg","_blank")
+        break;
+      case 'github':
+        window.open("https://github.com/virtualvishwam/universe-one","_blank");
+        break;
+    }
+
+  }
 }

@@ -19,6 +19,20 @@
 
 
       </ion-content>
+      <ion-footer>
+        <ion-toolbar>
+          <ion-grid>
+            <ion-row>
+              <ion-col (click)="openWebsite('facebook')" align="center" class="menuLogo">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-col>
+              <ion-col (click)="openWebsite('github')" align="center" class="menuLogo">
+                <ion-icon name="logo-github"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-toolbar>
+      </ion-footer>
 
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
