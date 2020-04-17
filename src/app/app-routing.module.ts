@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'contributors',
     loadChildren: () => import('./contributors/contributors.module').then( m => m.ContributorsPageModule)
+  },
+  {
+    path: 'resource-links',
+    loadChildren: () => import('./resource-links/resource-links.module').then( m => m.ResourceLinksPageModule)
   }
 ];
 

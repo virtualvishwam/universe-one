@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Helpful Links</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="resourceLinkContent">
+
+
+  <ion-card *ngFor="let resource of resourceLinks" (click)="openResource(resource.link)" class="ion-padding" button="true"
+    [ngClass]="{
+      youtube: resource.tag == 'youtube',
+      gov: resource.tag == 'gov',
+      who: resource.tag == 'who',
+      wiki: resource.tag == 'wiki',
+      web: resource.tag == 'web',
+      research: resource.tag == 'research'
+    }">
+    <ion-card-title>{{ resource.title }}</ion-card-title>
+    <ion-card-subtitle>{{ resource.subtitle }}</ion-card-subtitle>
+  </ion-card>
+</ion-content>

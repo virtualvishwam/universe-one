@@ -21,6 +21,16 @@ export class AppComponent implements OnInit {
       icon: 'list'
     },
     {
+      title: 'Helpful Links',
+      url: '/resource-links',
+      icon: 'document-text'
+    },
+    {
+      title: 'Contributors',
+      url: '/contributors',
+      icon: 'people'
+    },
+    {
       title: 'Language',
       url: '/language-settings',
       icon: 'settings'
@@ -30,11 +40,7 @@ export class AppComponent implements OnInit {
       url: '/help-us',
       icon: 'beer'
     },
-    {
-      title: 'Contributors',
-      url: '/contributors',
-      icon: 'people'
-    }
+
   ];
 
   constructor(
@@ -64,8 +70,8 @@ export class AppComponent implements OnInit {
   }
 
   logAnalyticsEvent() {
-    // this.analytics.logEvent('app_opened');
-    this.analytics.logEvent('dev_run');
+    this.analytics.logEvent('app_opened');
+    // this.analytics.logEvent('dev_run');
   }
 
 

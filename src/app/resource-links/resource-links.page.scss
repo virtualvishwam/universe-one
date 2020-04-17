@@ -1,0 +1,55 @@
+.resourceLinkContent {
+
+    ion-card-title {
+        font-weight: 600;
+    }
+
+    .youtube {
+        border-bottom: 2px solid rgb(255,0,0);
+
+        ion-card-subtitle {
+            color: rgb(255,0,0);
+        }
+    }
+
+    .gov {
+        border-bottom: 2px solid green;
+
+        ion-card-subtitle {
+            color: green;
+        }
+    }
+
+    .who {
+        border-bottom: 2px solid #008DC9;
+
+        ion-card-subtitle {
+            color: #008DC9;
+        }
+    }
+
+    .wiki {
+        border-bottom: 2px solid #626469;
+
+        ion-card-subtitle {
+            color: #626469;
+        }
+    }
+
+    .web {
+        border-bottom: 2px solid #ff9900;
+
+        ion-card-subtitle {
+            color: #ff9900;
+        }
+    }
+
+    .research {
+        border-bottom: 2px solid mediumpurple;
+
+        ion-card-subtitle {
+            color: mediumpurple
+        }
+    }
+
+}
