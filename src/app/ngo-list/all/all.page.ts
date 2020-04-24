@@ -31,6 +31,7 @@ export class AllPage implements OnInit {
         docRef.docs.forEach(data => {
           this.ngoList.push(data.data());
         });
+        console.log(this.ngoList);
       },
       err => {
         console.log(err);

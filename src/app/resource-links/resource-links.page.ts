@@ -9,7 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ResourceLinksPage implements OnInit {
 
 
-  private resourceLinks = [];
+  resourceLinks = [];
 
   constructor(private firestore: AngularFirestore) { }
 
