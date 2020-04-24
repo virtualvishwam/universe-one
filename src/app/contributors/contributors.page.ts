@@ -23,6 +23,12 @@ export class ContributorsPage {
       imagePath: "https://image.flaticon.com/icons/svg/188/188995.svg",
       role: "Handling Website Promotions",
       onClick: ""
+    },
+    {
+      name: "Saurabh Tiwari",
+      imagePath: "https://image.flaticon.com/icons/svg/2829/2829796.svg",
+      role: "Handling Graphic Designs",
+      onClick: "https://www.instagram.com/beauxarts.in"
     }
   ]
 
